@@ -1,5 +1,5 @@
 // The minimum prediction confidence.
-const threshold = 0.95;
+const threshold = 0.9;
 
 //shortener for element by id
 function $(x) {
@@ -14,7 +14,7 @@ let count = 0
 // initialize the sentence list
 // total, phrase, identity attack, insult, obscene, severe, sexually explicit, threat, brevity 
 let list = [
-    [8,'You smell bad.', 0, 1, 0, 0, 0, 0, 84,0]];
+    [18,'You smell bad.', 0, 16, 0, 0, 0, 0, 84,0]];
 
 //sort the sentences by score, trim the list if too long, and show in a table
 let j
@@ -58,18 +58,24 @@ $('input').onkeypress = () => {
               // `predictions` is an array of objects, one for each prediction head,
 
               for (i=0; i < 6; i++) {
+
+                input[i+2] = Math.floor(100*predictions[i].results[0].probabilities[1]);
+                /*
                 if (predictions[i].results[0].match == false)
                 {input[i+2] = 0}
                 else if (predictions[i].results[0].match == true)
                 {input[i+2] = 2}
                 else if (predictions[i].results[0].match == null)
                 {input[i+2] = 1}
+                */
               }
 
               input[8] = Math.min(100,Math.ceil(110 - 7 * Math.sqrt(input[1].length)));
-              input[0] = Math.round((input[2] + input[3]+ input[4]+ input[5] + input[6] + input[7]) * input[8] / 10)
+              input[0] = Math.round((input[2] + input[3]+ input[4]+ input[5] + input[6] + input[7]) * input[8] / 100)
 
                 arrangelist();
+
+                console.log(predictions);
 
               busy = false;
 
