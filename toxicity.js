@@ -1,5 +1,5 @@
 // The minimum prediction confidence.
-const threshold = 0.9;
+const threshold = 0.95;
 
 //shortener for element by id
 function $(x) {
