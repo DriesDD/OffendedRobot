@@ -8,6 +8,7 @@ function $(x) {
 
 //busy. If busy, not able to send in a new insult
 let busy  = false
+//counter. Invisible variable to sort by recent if score is the same.
 let count = 0
 
 // initialize the sentence list
@@ -15,7 +16,6 @@ let count = 0
 let list = [
     [8,'You smell bad.', 0, 1, 0, 0, 0, 0, 84],
     [7,'All pigeons should be shot.',0,0,0,0,0,1,74] ];
-
 
 //sort the sentences by score, trim the list if too long, and show in a table
 let j
@@ -62,9 +62,6 @@ $('input').onkeypress = () => {
 
           model.classify(input[1]).then(predictions => {
               // `predictions` is an array of objects, one for each prediction head,
-              // that contains the raw probabilities for each input along with the
-              // final prediction in `match` (either `true` or `false`).
-              // If neither prediction exceeds the threshold, `match` is `null`.
 
               console.log(predictions);
 
