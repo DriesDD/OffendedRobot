@@ -47,8 +47,10 @@ $('input').onkeypress = () => {
       count +=1 ;
       $('input').value = null;
 
-      //get toxicity
+      if (list.length < 10)
+      {document.getElementsByTagName('td')[list.length * 9 + 1].innerText = 'Loading...' }
 
+      //get toxicity
       toxicity.load(threshold).then(model => {
           const input = list[list.length - 1];
 
@@ -70,6 +72,9 @@ $('input').onkeypress = () => {
                 arrangelist();
 
               busy = false;
+
+              if (list.length < 10)
+                {document.getElementsByTagName('td')[list.length * 9 + 1].innerText = ''}
             })
           })
         }
