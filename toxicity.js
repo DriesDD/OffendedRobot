@@ -75,8 +75,6 @@ $('input').onkeypress = () => {
 
                 arrangelist();
 
-                console.log(predictions);
-
               busy = false;
 
               if (list.length < 10)
