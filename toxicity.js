@@ -28,7 +28,7 @@ function arrangelist() {
   });
 
   if (list.length > 10)
-  {list.splice(9,1)}
+  {list.splice(10,1)}
 
   for (i = 0; i < list.length; i++) {
     for (k = 0; k < 8; k++) {document.getElementsByTagName('td')[i * 9 + k].innerText = list[i][k];}
