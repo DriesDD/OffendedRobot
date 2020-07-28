@@ -14,7 +14,7 @@ let count = 0
 // initialize the sentence list
 // total, phrase, identity attack, insult, obscene, severe, sexually explicit, threat, brevity, count
 let list = [
-    [13,'You smell bad.', 0, 16, 0, 0, 0, 0, 84,0]];
+    [29,'You smell bad.', 0, 32, 0, 0, 0, 0, 84,92]];
 
 //sort the sentences by score, trim the list if too long, and show in a table
 let j
