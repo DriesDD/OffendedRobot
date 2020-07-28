@@ -57,20 +57,20 @@ $('input').onkeypress = () => {
           model.classify(input[1]).then(predictions => {
               // `predictions` is an array of objects, one for each prediction head,
 
+              //the scores are weighed to encourage insults and not just dirty words
+
+              input[2] = Math.floor(150*predictions[0].results[0].probabilities[1]);
+              input[3] = Math.floor(200*predictions[1].results[0].probabilities[1]);
+              input[4] = Math.floor(100*predictions[2].results[0].probabilities[1]);
+              input[5] = Math.floor(4000*predictions[3].results[0].probabilities[1]);
+              input[6] = Math.floor(100*predictions[4].results[0].probabilities[1]);
+              input[7] = Math.floor(200*predictions[5].results[0].probabilities[1]);
+              /*
               for (i=0; i < 6; i++) {
-
                 input[i+2] = Math.floor(100*predictions[i].results[0].probabilities[1]);
-                /*
-                if (predictions[i].results[0].match == false)
-                {input[i+2] = 0}
-                else if (predictions[i].results[0].match == true)
-                {input[i+2] = 2}
-                else if (predictions[i].results[0].match == null)
-                {input[i+2] = 1}
-                */
               }
-
-              input[8] = Math.min(100,Math.ceil(110 - 7 * Math.sqrt(input[1].length)));
+              */
+              input[8] = Math.min(100,Math.ceil(103 - 3 * Math.sqrt(input[1].length)));
               input[0] = Math.round((input[2] + input[3]+ input[4]+ input[5] + input[6] + input[7]) * input[8] / 100)
 
                 arrangelist();
