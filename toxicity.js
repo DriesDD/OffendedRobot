@@ -12,9 +12,9 @@ let busy  = false
 let count = 0
 
 // initialize the sentence list
-// total, phrase, identity attack, insult, obscene, severe, sexually explicit, threat, brevity 
+// total, phrase, identity attack, insult, obscene, severe, sexually explicit, threat, brevity, count
 let list = [
-    [18,'You smell bad.', 0, 16, 0, 0, 0, 0, 84,0]];
+    [13,'You smell bad.', 0, 16, 0, 0, 0, 0, 84,0]];
 
 //sort the sentences by score, trim the list if too long, and show in a table
 let j
@@ -22,7 +22,7 @@ let j
 function arrangelist() {
   list = list.sort(function(a, b) {
     if (a[0] == b[0]) {
-      return a[9] - b[9];
+      return b[9] - a[9];
     }
     return b[0] - a[0];
   });
